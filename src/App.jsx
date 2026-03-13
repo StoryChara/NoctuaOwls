@@ -79,6 +79,13 @@ const DISCIPLINES = [
     tag: 'OW2',
     color: '#F99E1A',
   },
+  {
+    name: 'Rocket League',
+    genre: 'Deporte Vehicular',
+    description: 'Fútbol con coches. Competencia rápida, habilidades aéreas y trabajo en equipo.',
+    tag: 'RL',
+    color: '#00BFFF',
+  }
 ];
 
 const SOCIAL_LINKS = [
