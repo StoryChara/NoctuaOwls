@@ -566,7 +566,211 @@ a {
   color: var(--text-muted);
 }
 
-/* ── ANIMATIONS ── */
+/* Coordinación General dentro de About */
+.about-pgp {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.about-pgp-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.about-pgp-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Staff inline en disc-card */
+.disc-staff {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.disc-staff-member {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.disc-staff-member:not(:last-child) {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── STAFF ── */
+.staff {
+  padding: 100px 0;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.staff-group-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Coordinación General */
+.staff-pgp {
+  margin-bottom: 56px;
+}
+
+.staff-pgp-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.staff-pgp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 240px;
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--accent);
+  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease);
+}
+
+.staff-pgp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Per-discipline grid */
+.staff-disciplines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.staff-disc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease);
+}
+
+.staff-disc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.staff-disc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.staff-disc-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+/* Members list */
+.staff-members {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.staff-member {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.staff-member:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Role badge */
+.staff-role-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+}
+
+.staff-role-badge--sm {
+  font-size: 0.68rem;
+  padding: 2px 8px;
+}
+
+/* Member name & email */
+.staff-member-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.staff-member-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+  word-break: break-all;
+}
+
+.staff-member-email:hover {
+  color: var(--accent);
+}
+
+.staff-member-email svg {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+
+/* ── STAFF RESPONSIVE ── */
+@media (max-width: 480px) {
+  .staff-disciplines-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-pgp-grid {
+    flex-direction: column;
+  }
+}
+
+
 @keyframes fadeUp {
   from {
     opacity: 0;

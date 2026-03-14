@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import {
   FaSun, FaMoon, FaInstagram, FaTwitch,
   FaGamepad, FaUsers, FaTrophy,
+  FaWhatsapp, FaDiscord, FaEnvelope,
 } from 'react-icons/fa';
 import './App.css';
 
@@ -10,87 +11,101 @@ import logoGold from './assets/Logo Noctua Owls GOLD.png';
 
 const DISCIPLINES = [
   {
-    name: 'Valorant',
-    genre: 'FPS Táctico',
+    name: 'Valorant', genre: 'FPS Táctico', tag: 'VAL', color: '#FF4655',
     description: 'Shooter táctico 5v5 de Riot Games. Precisión, estrategia y habilidades únicas por agente.',
-    tag: 'VAL',
-    color: '#FF4655',
+    staff: [
+      { role: 'Coordinadora', name: 'Laura Daniela Buitrago Reyes', email: 'lbuitragore@unal.edu.co' },
+      { role: 'Coach', name: 'Tarek Alexandrovich', email: null },
+    ],
   },
   {
-    name: 'Valorant Femenino',
-    genre: 'FPS Táctico',
+    name: 'Valorant Femenino', genre: 'FPS Táctico', tag: 'VAL·F', color: '#FF4655',
     description: 'Equipo femenino de Valorant representando a la UNAL en torneos universitarios.',
-    tag: 'VAL·F',
-    color: '#FF4655',
+    staff: [
+      { role: 'Coordinadora', name: 'Juana Valentina Orjuela Londoño', email: 'jorjuelal@unal.edu.co' },
+      { role: 'Coach', name: 'Santiago Guillen Fandiño', email: 'sguillen@unal.edu.co' },
+    ],
   },
   {
-    name: 'League of Legends',
-    genre: 'MOBA',
+    name: 'League of Legends', genre: 'MOBA', tag: 'LoL', color: '#C89B3C',
     description: 'El MOBA más popular del mundo. Estrategia 5v5 en la Grieta del Invocador.',
-    tag: 'LoL',
-    color: '#C89B3C',
+    staff: [
+      { role: 'Coordinador', name: 'Jose Manuel Lizarazo Velandia', email: 'jolizarazov@unal.edu.co' },
+      { role: 'Subcoordinador', name: 'Sergio Blanco Moreno', email: 'sblancom@unal.edu.co' },
+      { role: 'Coach', name: 'Ivan Vargas', email: null },
+    ],
   },
   {
-    name: 'LoL Femenino',
-    genre: 'MOBA',
+    name: 'LoL Femenino', genre: 'MOBA', tag: 'LoL·F', color: '#C89B3C',
     description: 'Equipo femenino de League of Legends compitiendo en ligas universitarias nacionales.',
-    tag: 'LoL·F',
-    color: '#C89B3C',
+    staff: [
+      { role: 'Coordinadora', name: 'María José Morales Villacres', email: 'mmoralesvi@unal.edu.co' },
+      { role: 'Coach', name: 'Ivan Vargas', email: null },
+    ],
   },
   {
-    name: 'Marvel Rivals',
-    genre: 'Hero Shooter',
+    name: 'Marvel Rivals', genre: 'Hero Shooter', tag: 'MR', color: '#E62429',
     description: 'Hero shooter 6v6 con los personajes del universo Marvel. Cooperación y poder.',
-    tag: 'MR',
-    color: '#E62429',
+    staff: [
+      { role: 'Coordinadora', name: 'María José Jara Herrera', email: 'mjarah@unal.edu.co' },
+      { role: 'Subcoordinador', name: 'Mateo Maya', email: 'mmayape@unal.edu.co' },
+    ],
   },
   {
-    name: 'Counter-Strike 2',
-    genre: 'FPS Táctico',
+    name: 'Counter-Strike 2', genre: 'FPS Táctico', tag: 'CS2', color: '#F0A500',
     description: 'El shooter táctico competitivo por excelencia, renovado. Precisión y trabajo en equipo.',
-    tag: 'CS2',
-    color: '#F0A500',
+    staff: [
+      { role: 'Coordinador', name: 'David Esteban Romero Villalobos', email: 'dromerovi@unal.edu.co' },
+      { role: 'Subcoordinador · Coach', name: 'Julián Andrés Pinzón León', email: 'jupinzonl@unal.edu.co' },
+    ],
   },
   {
-    name: 'Fighting Games',
-    genre: 'Juegos de Pelea',
+    name: 'Fighting Games', genre: 'Juegos de Pelea', tag: 'FGC', color: '#9B59B6',
     description: 'Domina el combate 1v1 en los mejores títulos del género: Street Fighter, Tekken y más.',
-    tag: 'FGC',
-    color: '#9B59B6',
+    staff: [
+      { role: 'Coordinador', name: 'Lucas Eduardo Fernandez Duran', email: 'lufernandez@unal.edu.co' },
+      { role: 'Subcoordinador', name: 'Manuel Santiago Gonzales Quiazua', email: 'mgonzalesqu@unal.edu.co' },
+    ],
   },
   {
-    name: 'Rainbow Six Siege',
-    genre: 'FPS Táctico',
+    name: 'Rainbow Six Siege', genre: 'FPS Táctico', tag: 'R6S', color: '#00AEEF',
     description: 'FPS táctico con destrucción ambiental y operadores únicos. Defensa y ataque.',
-    tag: 'R6S',
-    color: '#00AEEF',
+    staff: [
+      { role: 'Coordinador', name: 'Sergio Alejandro Buitrago Melo', email: 'sebuitrago@unal.edu.co' },
+    ],
   },
   {
-    name: 'Brawl Stars',
-    genre: 'Battle Arena',
+    name: 'Brawl Stars', genre: 'Battle Arena', tag: 'BS', color: '#FFCD01',
     description: 'Multijugador móvil de Supercell con modos rápidos y acción competitiva.',
-    tag: 'BS',
-    color: '#FFCD01',
+    staff: [
+      { role: 'Coordinador', name: 'Santiago Elias Manjarres Vargas', email: 'smanjarresv@unal.edu.co' },
+    ],
   },
   {
-    name: 'Overwatch 2',
-    genre: 'Hero Shooter',
+    name: 'Overwatch 2', genre: 'Hero Shooter', tag: 'OW2', color: '#F99E1A',
     description: 'Hero shooter 5v5 de Blizzard con héroes únicos, roles definidos y estrategia dinámica.',
-    tag: 'OW2',
-    color: '#F99E1A',
+    staff: [
+      { role: 'Coordinador', name: 'Joel Santiago Bernal Cubillos', email: 'jobernalc@unal.edu.co' },
+    ],
   },
   {
-    name: 'Rocket League',
-    genre: 'Deporte Vehicular',
-    description: 'Fútbol con coches. Competencia rápida, habilidades aéreas y trabajo en equipo.',
-    tag: 'RL',
-    color: '#00BFFF',
+    name: 'Rocket League', genre: 'Deporte Vehicular', tag: 'RL', color: '#00AEEF',
+    description: 'Fútbol con autos propulsados. Habilidad, estrategia y trabajo en equipo a alta velocidad.',
+    staff: [],
   }
 ];
 
 const SOCIAL_LINKS = [
   { name: 'Instagram', url: 'https://www.instagram.com/noctuaowls/', Icon: FaInstagram },
   { name: 'Twitch', url: 'https://www.twitch.tv/noctuaowls', Icon: FaTwitch },
+  { name: 'WhatsApp', url: 'https://chat.whatsapp.com/LbY6ZSrq1XLAXsM2j6W5fZ', Icon: FaWhatsapp },
+  { name: 'Discord', url: 'https://discord.gg/wNWGvJnvcW', Icon: FaDiscord },
+  { name: 'Email', url: 'mailto:noctua.owlsesports@gmail.com', Icon: FaEnvelope },
+];
+
+const PGP_STAFF = [
+  { role: 'Coordinador/a', name: 'Ivan Daniel Silva Oyola', email: 'isilvao@unal.edu.co' },
+  { role: 'Subcoordinador/a', name: 'Jesus David Muñoz Gomez', email: 'jmunozgo@unal.edu.co' },
 ];
 
 const REGISTER_URL = 'http://forms.gle/x9ZRLus76kbb1fnu8';
@@ -196,6 +211,22 @@ function App() {
               <strong>10 disciplinas deportivas</strong>, reconocidas oficialmente en Colombia
               (Ley 026 de 2024) por su alta exigencia estratégica, técnica y mental.
             </p>
+            <div className="about-pgp">
+              <h3 className="about-pgp-title">Coordinación General</h3>
+              <div className="about-pgp-grid">
+                {PGP_STAFF.map((m) => (
+                  <div key={m.name} className="staff-pgp-card">
+                    <span className="staff-role-badge">{m.role}</span>
+                    <p className="staff-member-name">{m.name}</p>
+                    {m.email && (
+                      <a href={`mailto:${m.email}`} className="staff-member-email">
+                        <FaEnvelope /> {m.email}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -223,6 +254,19 @@ function App() {
                 <h3 className="disc-name">{disc.name}</h3>
                 <span className="disc-genre">{disc.genre}</span>
                 <p className="disc-desc">{disc.description}</p>
+                <div className="disc-staff">
+                  {disc.staff.map((m) => (
+                    <div key={m.name} className="disc-staff-member">
+                      <span className="staff-role-badge staff-role-badge--sm">{m.role}</span>
+                      <span className="staff-member-name">{m.name}</span>
+                      {m.email && (
+                        <a href={`mailto:${m.email}`} className="staff-member-email">
+                          <FaEnvelope /> {m.email}
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
