@@ -1,0 +1,99 @@
+openapi: 3.0.0
+info:
+  title: Noctua Owls API
+  description: API para la gestión del equipo de E-Sports Noctua Owls (Universidad Nacional de Colombia).
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000/api
+    description: Servidor de Desarrollo
+tags:
+  - name: General
+    description: Endpoints de utilidad y estado
+  - name: BD
+    description: Gestión de datos (Juegos y Usuarios)
+
+paths:
+  /health:
+    get:
+      summary: Verificar estado del servicio
+      tags:
+        - General
+      responses:
+        '200':
+          description: Servicio activo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+
+  /:
+    get:
+      summary: Catálogo de endpoints
+      tags:
+        - General
+      description: Devuelve una lista de los endpoints disponibles en la API.
+      responses:
+        '200':
+          description: Lista de rutas
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /bd/juegos:
+    get:
+      summary: Obtener catálogo de juegos/disciplinas
+      tags:
+        - BD
+      parameters:
+        - in: query
+          name: estado
+          schema:
+            type: boolean
+          description: Filtrar por estado (ej. true para activos)
+      responses:
+        '200':
+          description: Lista de juegos
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /bd/usuarios:
+    get:
+      summary: Obtener listado de usuarios y staff
+      tags:
+        - BD
+      parameters:
+        - in: query
+          name: juegos
+          schema:
+            type: array
+            items:
+              type: string
+          description: Lista de IDs de juegos para filtrar
+          style: form
+          explode: false
+        - in: query
+          name: cargos
+          schema:
+            type: array
+            items:
+              type: string
+          description: Lista de cargos para filtrar
+          style: form
+          explode: false
+      responses:
+        '200':
+          description: Lista de usuarios filtrada
+          content:
+            application/json:
+              schema:
+                type: object
