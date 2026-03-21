@@ -433,3 +433,17 @@
         flex-direction: column;
     }
 }
+
+.spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    border-top-color: #C89B3C;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+    margin: 1.5rem auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
