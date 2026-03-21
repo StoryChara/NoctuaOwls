@@ -17,6 +17,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use((req, _res, next) => {
+  // eslint-disable-next-line no-console
+  console.log(`[REQUEST] ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 // Cargar documentación Swagger
 const swaggerDocument = YAML.load(path.join(__dirname, "../swagger.yaml"));
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
