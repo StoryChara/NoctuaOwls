@@ -16,7 +16,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173", // Frontend en desarrollo (Vite)
-  "https://noctuaowls.onrender.com", // Frontend en Producción
+  "https://noctuaowls.vercel.app", // Frontend en Producción
 ];
 
 app.use(cors({
