@@ -17,47 +17,21 @@ export function Home({ isDark }) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const [juegosRes, staffRes] = await Promise.all([
-                    api.getJuegos({ estado: true }),
-                    api.getUsersBy({}),
-                ]);
+                const pgp = await api.getUsersBy({ juegos: ['NOCTUA'] });
+                const juegosRes = await api.getJuegos();
 
-                const todosJuegos = juegosRes.data ?? [];
-                const todoStaff = staffRes.data ?? [];
+                const juegos = await Promise.all(juegosRes.data.map(async (juego) => {
+                    const staff = await api.getUsersBy({
+                        juegos: [juego.clave],
+                        cargos: ROLES_JUEGO
+                    });
+                    return { ...juego, staff: staff.data.sort((a, b) => 
+                        ROLES_JUEGO.indexOf(a.juegos[0]?.cargo) - ROLES_JUEGO.indexOf(b.juegos[0]?.cargo)
+                    )};
+                }));
 
-                // Staff general (NOCTUA) — todos los cargos
-                setPgp(
-                    todoStaff
-                        .filter(u => u.juegos.some(j => j.id === 'NOCTUA'))
-                        .map(u => ({
-                            name: `${u.nombre} ${u.apellido}`,
-                            email: u.correo,
-                            role: u.juegos.find(j => j.id === 'NOCTUA')?.cargo,
-                        }))
-                );
-
-                // Disciplinas: excluir NOCTUA, filtrar staff solo por roles de juego
-                const disciplinas = todosJuegos
-                    .filter(j => j.id_juego !== 'NOCTUA')
-                    .map(j => ({
-                        tag: j.id_juego,
-                        name: j.nombre,
-                        genre: j.generos?.nombre ?? '',
-                        color: j.color,
-                        description: j.descripcion,
-                        staff: todoStaff
-                            .filter(u => u.juegos.some(s =>
-                                s.id === j.id_juego && ROLES_JUEGO.includes(s.cargo)
-                            ))
-                            .map(u => ({
-                                name: `${u.nombre} ${u.apellido}`,
-                                email: u.correo,
-                                role: u.juegos.find(s => s.id === j.id_juego)?.cargo,
-                            }))
-                            .sort((a, b) => ROLES_JUEGO.indexOf(a.role) - ROLES_JUEGO.indexOf(b.role)),
-                    }));
-
-                setJuegos(disciplinas);
+                setJuegos(juegos);
+                setPgp(pgp.data);
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -106,10 +80,10 @@ export function Home({ isDark }) {
                             ) : (
                                 <div className="about-pgp-grid">
                                     {pgp.map((m) => (
-                                        <div key={m.name} className="staff-pgp-card">
-                                            <span className="staff-role-badge">{m.role}</span>
-                                            <p className="staff-member-name">{m.name}</p>
-                                            {m.email && <a href={`mailto:${m.email}`} className="staff-member-email"><FaEnvelope /> {m.email}</a>}
+                                        <div key={m.id_usuario} className="staff-pgp-card">
+                                            <span className="staff-role-badge">{m.juegos[0]?.cargo}</span>
+                                            <p className="staff-member-name">{m.nombre} {m.apellido}</p>
+                                            {m.correo && <a href={`mailto:${m.correo}`} className="staff-member-email"><FaEnvelope /> {m.correo}</a>}
                                         </div>
                                     ))}
                                 </div>
@@ -132,17 +106,17 @@ export function Home({ isDark }) {
                     ) : (
                         <div className="disciplines-grid">
                             {juegos.map((disc) => (
-                                <div key={disc.tag} className="disc-card">
-                                    <div className="disc-tag" style={{ color: disc.color, background: disc.color + '1A', borderColor: disc.color + '55' }}>{disc.tag}</div>
-                                    <h3 className="disc-name">{disc.name}</h3>
-                                    <span className="disc-genre">{disc.genre}</span>
-                                    <p className="disc-desc">{disc.description}</p>
+                                <div key={disc.id_juego} className="disc-card">
+                                    <div className="disc-tag" style={{ color: disc.color, background: disc.color + '1A', borderColor: disc.color + '55' }}>{disc.clave}</div>
+                                    <h3 className="disc-name">{disc.nombre}</h3>
+                                    <span className="disc-genre">{disc.generos?.nombre}</span>
+                                    <p className="disc-desc">{disc.descripcion}</p>
                                     <div className="disc-staff">
                                         {disc.staff.map((m) => (
-                                            <div key={m.name} className="disc-staff-member">
-                                                <span className="staff-role-badge staff-role-badge--sm">{m.role}</span>
-                                                <span className="staff-member-name">{m.name}</span>
-                                                {m.email && <a href={`mailto:${m.email}`} className="staff-member-email"><FaEnvelope /> {m.email}</a>}
+                                            <div key={m.id_usuario} className="disc-staff-member">
+                                                <span className="staff-role-badge staff-role-badge--sm">{m.juegos[0]?.cargo}</span>
+                                                <span className="staff-member-name">{m.nombre} {m.apellido}</span>
+                                                {m.correo && <a href={`mailto:${m.correo}`} className="staff-member-email"><FaEnvelope /> {m.correo}</a>}
                                             </div>
                                         ))}
                                     </div>
