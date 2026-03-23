@@ -17,21 +17,30 @@ export function Home({ isDark }) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const pgp = await api.getUsersBy({ juegos: ['NOCTUA'] });
-                const juegosRes = await api.getJuegos();
+                const [juegosRes, staffRes, pgpRes] = await Promise.all([
+                    api.getJuegos({ estado: true }),
+                    api.getUsersBy({ cargos: ROLES_JUEGO }),
+                    api.getUsersBy({ juegos: ['NOCTUA'] }),
+                ]);
 
-                const juegos = await Promise.all(juegosRes.data.map(async (juego) => {
-                    const staff = await api.getUsersBy({
-                        juegos: [juego.clave],
-                        cargos: ROLES_JUEGO
-                    });
-                    return { ...juego, staff: staff.data.sort((a, b) => 
-                        ROLES_JUEGO.indexOf(a.juegos[0]?.cargo) - ROLES_JUEGO.indexOf(b.juegos[0]?.cargo)
-                    )};
+                const todosJuegos = juegosRes.data ?? [];
+                const todoStaff = staffRes.data ?? [];
+
+                // PGP: ya viene filtrado por NOCTUA
+                setPgp(pgpRes.data ?? []);
+
+                // Disciplinas: asociar staff a cada juego
+                const disciplinas = todosJuegos.map(j => ({
+                    ...j,
+                    staff: todoStaff
+                        .filter(u => u.juegos.some(s => s.clave === j.clave))
+                        .sort((a, b) =>
+                            ROLES_JUEGO.indexOf(a.juegos.find(s => s.clave === j.clave)?.cargo) -
+                            ROLES_JUEGO.indexOf(b.juegos.find(s => s.clave === j.clave)?.cargo)
+                        ),
                 }));
 
-                setJuegos(juegos);
-                setPgp(pgp.data);
+                setJuegos(disciplinas);
             } catch (err) {
                 setError(err.message);
             } finally {
