@@ -1,0 +1,374 @@
+/* ── LAYOUT & HERO ── */
+.about-page {
+    padding-top: 80px;
+    /* Offset for navbar */
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+.about-hero {
+    position: relative;
+    padding: 80px 24px 60px;
+    text-align: center;
+    background: radial-gradient(circle at top center, var(--bg-alt) 0%, var(--bg) 70%);
+    margin-bottom: 40px;
+}
+
+/* Reusing hero pattern if available globally, otherwise redefining locally */
+.hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--text-sub) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.about-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: var(--text);
+    position: relative;
+    display: inline-block;
+}
+
+.about-subtitle {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ── SECTIONS ── */
+.about-section {
+    padding: 60px 0;
+}
+
+.about-text-block p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-sub);
+    margin-bottom: 20px;
+}
+
+.about-text-block strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* ── CARDS ── */
+.justification-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    border-left: 5px solid var(--accent);
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.justification-card h3 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.justification-card .icon-mb {
+    color: var(--accent);
+}
+
+.justification-card p {
+    color: var(--text-sub);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* ── GENERAL OBJECTIVE ── */
+.general-objective-card {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: var(--bg);
+    border-radius: var(--radius-lg);
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 20px 40px -10px rgba(var(--accent-rgb), 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.general-objective-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+.objective-icon-wrapper {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.objective-content h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+.objective-content p {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ── SPECIFIC OBJECTIVES ── */
+.specific-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 30px 24px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s var(--ease);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.specific-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.specific-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.specific-card p {
+    color: var(--text-sub);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── STRATEGY SECTION ── */
+.strategy-section {
+    background: var(--bg-alt);
+    padding: 80px 0;
+}
+
+.strategy-col {
+    background: var(--bg);
+    padding: 40px 30px;
+    border-radius: var(--radius-lg);
+    height: 100%;
+    border: 1px solid transparent;
+    transition: transform 0.3s var(--ease);
+}
+
+.strategy-col.highlight {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+    z-index: 1;
+}
+
+.strategy-title {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 24px;
+    text-align: center;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 16px;
+}
+
+.strategy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.strategy-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    color: var(--text-sub);
+    line-height: 1.6;
+}
+
+.strategy-list li::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* ── DETAILS ── */
+.detail-item {
+    margin-bottom: 30px;
+}
+
+.detail-item h4 {
+    color: var(--text);
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail-icon {
+    color: var(--accent);
+}
+
+.detail-item p {
+    color: var(--text-sub);
+    line-height: 1.7;
+}
+
+.simple-list {
+    padding-left: 20px;
+    color: var(--text-sub);
+}
+
+.simple-list li {
+    margin-bottom: 6px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .general-objective-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+        gap: 24px;
+    }
+
+    .objective-content p {
+        font-size: 1.1rem;
+    }
+
+    .strategy-col.highlight {
+        transform: none;
+    }
+}
+
+/* ── ANIMATION ── */
+.fade-in-up {
+    animation: fadeInUp 0.8s var(--ease) both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── STAFF SECTION (Coordinación) ── */
+.staff {
+    padding: 80px 0;
+    background: var(--bg-alt);
+}
+
+.about-pgp-title {
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--text);
+    font-weight: 800;
+}
+
+/* Reusing styles from Home.css for consistency */
+.staff-pgp-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid var(--accent);
+    transition: all 0.3s var(--ease);
+    text-align: center;
+}
+
+.staff-pgp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.staff-role-badge {
+    display: inline-flex;
+    width: fit-content;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--bg);
+    margin-bottom: 8px;
+}
+
+.staff-member-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.staff-member-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color 0.2s var(--ease);
+    word-break: break-all;
+}
+
+.staff-member-email:hover {
+    color: var(--accent);
+}
+
+.staff-member-email svg {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+}

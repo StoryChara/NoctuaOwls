@@ -18,4 +18,10 @@ export const bdController = {
     const data = await bdService.getJuegos({ estado });
     res.status(200).json({ ok: true, data });
   }),
+
+  getJuegoInfo: handleAsync(async (req, res) => {
+    const { clave } = req.query;
+    const data = await bdService.getJuegoDetalle(clave);
+    res.status(200).json({ ok: true, data });
+  }),
 };

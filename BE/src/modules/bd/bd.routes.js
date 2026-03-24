@@ -6,5 +6,6 @@ const bdRouter = Router();
 
 bdRouter.get("/usuarios", bdController.getUsuariosDetalle);
 bdRouter.get("/juegos",   bdController.getJuegos);
+bdRouter.get("/juego-info", bdController.getJuegoInfo);
 
 export default bdRouter;

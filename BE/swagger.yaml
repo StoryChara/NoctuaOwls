@@ -6,6 +6,9 @@ info:
 servers:
   - url: http://localhost:4000/api
     description: Servidor de Desarrollo
+  - url: https://noctuaowls.onrender.com/api
+    description: Servidor de Producción
+  
 tags:
   - name: General
     description: Endpoints de utilidad y estado
@@ -19,19 +22,35 @@ paths:
       tags:
         - General
       responses:
-        '200':
+        "200":
           description: Servicio activo
           content:
             application/json:
               schema:
                 type: object
+
+  /heartbeat:
+    get:
+      summary: Verificar pulso del sistema
+      tags:
+        - General
+      responses:
+        "200":
+          description: Pulso exitoso
+          content:
+            application/json:
+              schema:
+                type: object
                 properties:
-                  status:
-                    type: string
-                    example: ok
+                  ok:
+                    type: boolean
+                    example: true
                   timestamp:
                     type: string
                     format: date-time
+                  response:
+                    type: string
+                    example: thump-thump
 
   /:
     get:
@@ -40,7 +59,7 @@ paths:
         - General
       description: Devuelve una lista de los endpoints disponibles en la API.
       responses:
-        '200':
+        "200":
           description: Lista de rutas
           content:
             application/json:
@@ -59,12 +78,19 @@ paths:
             type: boolean
           description: Filtrar por estado (ej. true para activos)
       responses:
-        '200':
+        "200":
           description: Lista de juegos
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
 
   /bd/usuarios:
     get:
@@ -91,9 +117,42 @@ paths:
           style: form
           explode: false
       responses:
-        '200':
+        "200":
           description: Lista de usuarios filtrada
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time
+  /bd/juego-info:
+    get:
+      summary: Obtener detalle de un juego
+      tags:
+        - BD
+      parameters:
+        - in: query
+          name: clave
+          required: true
+          schema:
+            type: string
+          description: Clave única del juego a consultar.
+      responses:
+        "200":
+          description: Detalle del juego.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  timestamp:
+                    type: string
+                    format: date-time

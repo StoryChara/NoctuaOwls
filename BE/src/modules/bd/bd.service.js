@@ -24,4 +24,12 @@ export const bdService = {
     return data;
   },
 
+  async getJuegoDetalle(clave) {
+    const { data, error } = await supabase.rpc("get_juego_detalle", {
+      p_clave: clave,
+    });
+    if (error) throw error;
+    return data;
+  },
+
 };

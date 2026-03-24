@@ -49,6 +49,7 @@
     font-weight: 600;
     color: var(--text-sub);
     transition: all 0.22s var(--ease);
+    text-decoration: none;
 }
 
 .social-link:hover {

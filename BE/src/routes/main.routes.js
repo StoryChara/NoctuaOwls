@@ -27,6 +27,14 @@ mainRouter.get("/health", (_req, res) => {
   });
 });
 
+mainRouter.use("/heartbeat", (_req, res) => {
+  res.status(200).json({
+    ok: true,
+    timestamp: new Date().toISOString(),
+    response: 'thump-thump'
+  });
+});
+
 mainRouter.use("/bd", bdRouter);
 
 export default mainRouter;

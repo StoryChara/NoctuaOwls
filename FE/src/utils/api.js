@@ -21,5 +21,12 @@ export const api = {
         if (estado !== undefined) params.set("estado", estado);
         const query = params.toString();
         return get(`/bd/juegos${query ? `?${query}` : ""}`);
-    }
+    },
+
+    getJuegoInfo: (clave) => {
+        const params = new URLSearchParams();
+        params.set("clave", clave);
+        const query = params.toString();
+        return get(`/bd/juego-info${query ? `?${query}` : ""}`);
+    },
 };

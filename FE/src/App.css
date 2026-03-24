@@ -9,6 +9,7 @@
   --bg: #f9eed6;
   --bg-alt: #f2e4c2;
   --bg-card: #fcecc4;
+  --bg-card-rgb: 252, 236, 196;
   --text: #35323d;
   --text-sub: #5a5660;
   --text-muted: #8a8590;
@@ -31,6 +32,7 @@
   --bg: #35323d;
   --bg-alt: #2b2834;
   --bg-card: #3f3c49;
+  --bg-card-rgb: 63, 60, 73;
   --text: #f9eed6;
   --text-sub: #d4c8a8;
   --text-muted: #8a8070;

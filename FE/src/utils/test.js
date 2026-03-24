@@ -1,0 +1,96 @@
+export const test = {
+    "data": {
+        "id_juego": 7,
+        "clave": "MC",
+        "nombre": "Minecraft",
+        "descripcion": "Sandbox de mundo abierto centrado en la construcción, exploración y supervivencia técnica.",
+        "color": "#477A1E",
+        "estado": false,
+        "genero": "Sandbox / Survival",
+        "usuarios": [
+            /* NOCTUA BLACK (8 integrantes) */
+            { "id_usuario": 50, "nombre": "Carlos", "apellido": "Ruiz", "correo": "cruiz@unal.edu.co", "carrera": "Ingeniería de Sistemas", "cargos": ["Noctua Black", "Capitán"] },
+            { "id_usuario": 51, "nombre": "Laura", "apellido": "Gómez", "correo": "", "carrera": "Diseño Gráfico", "cargos": ["Noctua Black", "Sub-Capitán"] },
+            { "id_usuario": 52, "nombre": "Andrés", "apellido": "Castro", "correo": "", "carrera": "Física", "cargos": ["Noctua Black"] },
+            { "id_usuario": 53, "nombre": "Felipe", "apellido": "Mendoza", "correo": "", "carrera": "Matemáticas", "cargos": ["Noctua Black", "Coach"] },
+            { "id_usuario": 54, "nombre": "Daniela", "apellido": "Patiño", "correo": "", "carrera": "Ingeniería Química", "cargos": ["Noctua Black"] },
+            { "id_usuario": 55, "nombre": "Marcos", "apellido": "León", "correo": "", "carrera": "Biología", "cargos": ["Noctua Black"] },
+            { "id_usuario": 56, "nombre": "Esteban", "apellido": "Quintero", "correo": "", "carrera": "Economía", "cargos": ["Noctua Black"] },
+            { "id_usuario": 57, "nombre": "Lucía", "apellido": "Fernández", "correo": "", "carrera": "Cine y TV", "cargos": ["Noctua Black"] },
+
+            /* NOCTUA GOLD (8 integrantes) */
+            { "id_usuario": 60, "nombre": "Sergio", "apellido": "Reyes", "correo": "sreyes@unal.edu.co", "carrera": "Ingeniería Mecánica", "cargos": ["Noctua Gold", "Capitán"] },
+            { "id_usuario": 61, "nombre": "Paola", "apellido": "Díaz", "correo": "", "carrera": "Arquitectura", "cargos": ["Noctua Gold", "Sub-Capitán"] },
+            { "id_usuario": 62, "nombre": "Hugo", "apellido": "Sánchez", "correo": "", "carrera": "Ingeniería Civil", "cargos": ["Noctua Gold"] },
+            { "id_usuario": 63, "nombre": "Marta", "apellido": "Pérez", "correo": "", "carrera": "Antropología", "cargos": ["Noctua Gold", "Coach"] },
+            { "id_usuario": 64, "nombre": "Jhonny", "apellido": "Bravo", "correo": "", "carrera": "Artes Plásticas", "cargos": ["Noctua Gold"] },
+            { "id_usuario": 65, "nombre": "Valentina", "apellido": "Mejía", "correo": "", "carrera": "Derecho", "cargos": ["Noctua Gold"] },
+            { "id_usuario": 66, "nombre": "Ricardo", "apellido": "Gaitán", "correo": "", "carrera": "Estadística", "cargos": ["Noctua Gold"] },
+            { "id_usuario": 67, "nombre": "Sandra", "apellido": "Milena", "correo": "", "carrera": "Enfermería", "cargos": ["Noctua Gold"] },
+
+            /* NOCTUA WHITE (8 integrantes) */
+            { "id_usuario": 70, "nombre": "Javier", "apellido": "Ortiz", "correo": "jortiz@unal.edu.co", "carrera": "Economía", "cargos": ["Noctua White", "Capitán"] },
+            { "id_usuario": 71, "nombre": "Elena", "apellido": "Moreno", "correo": "", "carrera": "Derecho", "cargos": ["Noctua White", "Sub-Capitán"] },
+            { "id_usuario": 72, "nombre": "Oscar", "apellido": "Torres", "correo": "", "carrera": "Geología", "cargos": ["Noctua White"] },
+            { "id_usuario": 73, "nombre": "Sofia", "apellido": "Vargas", "correo": "", "carrera": "Psicología", "cargos": ["Noctua White", "Coach"] },
+            { "id_usuario": 74, "nombre": "Mateo", "apellido": "Giraldo", "correo": "", "carrera": "Ingeniería Eléctrica", "cargos": ["Noctua White"] },
+            { "id_usuario": 75, "nombre": "Natalia", "apellido": "Herrera", "correo": "", "carrera": "Sociología", "cargos": ["Noctua White"] },
+            { "id_usuario": 76, "nombre": "Camilo", "apellido": "Andrade", "correo": "", "carrera": "Música", "cargos": ["Noctua White"] },
+            { "id_usuario": 77, "nombre": "Gabriela", "apellido": "Soto", "correo": "", "carrera": "Farmacia", "cargos": ["Noctua White"] },
+
+            /* NOCTUA ROSE (8 integrantes) */
+            { "id_usuario": 80, "nombre": "Valeria", "apellido": "Castro", "correo": "vcastro@unal.edu.co", "carrera": "Artes Plásticas", "cargos": ["Noctua Rose", "Capitán"] },
+            { "id_usuario": 81, "nombre": "Camila", "apellido": "Suarez", "correo": "", "carrera": "Medicina", "cargos": ["Noctua Rose", "Sub-Capitán"] },
+            { "id_usuario": 82, "nombre": "Isabella", "apellido": "Méndez", "correo": "", "carrera": "Sociología", "cargos": ["Noctua Rose"] },
+            { "id_usuario": 83, "nombre": "Mariana", "apellido": "Rojas", "correo": "", "carrera": "Psicología", "cargos": ["Noctua Rose"] },
+            { "id_usuario": 84, "nombre": "Paula", "apellido": "Duarte", "correo": "", "carrera": "Física", "cargos": ["Noctua Rose"] },
+            { "id_usuario": 85, "nombre": "Adriana", "apellido": "Luna", "correo": "", "carrera": "Geología", "cargos": ["Noctua Rose", "Coach"] },
+            { "id_usuario": 86, "nombre": "Ximena", "apellido": "Ponce", "correo": "", "carrera": "Lingüística", "cargos": ["Noctua Rose"] },
+            { "id_usuario": 87, "nombre": "Diana", "apellido": "Toro", "correo": "", "carrera": "Historia", "cargos": ["Noctua Rose"] },
+
+            /* NOCTUA ACADEMY (15 integrantes) */
+            { "id_usuario": 301, "nombre": "Kevin", "apellido": "López", "correo": "", "carrera": "Ingeniería Civil", "cargos": ["Noctua Academy", "Capitán"] },
+            { "id_usuario": 302, "nombre": "Brayan", "apellido": "Pinto", "correo": "", "carrera": "Matemáticas", "cargos": ["Noctua Academy", "Sub-Capitán"] },
+            { "id_usuario": 303, "nombre": "Stiven", "apellido": "Ruiz", "correo": "", "carrera": "Antropología", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 304, "nombre": "Jhon", "apellido": "García", "correo": "", "carrera": "Filosofía", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 305, "nombre": "Camilo", "apellido": "Torres", "correo": "", "carrera": "Enfermería", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 306, "nombre": "Andrés", "apellido": "Parra", "correo": "", "carrera": "Zootecnia", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 307, "nombre": "Santiago", "apellido": "Ortiz", "correo": "", "carrera": "Derecho", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 308, "nombre": "Daniel", "apellido": "Mora", "correo": "", "carrera": "Música", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 309, "nombre": "Juan", "apellido": "Rincón", "correo": "", "carrera": "Biología", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 310, "nombre": "Cristian", "apellido": "Bernal", "correo": "", "carrera": "Ingeniería Agrícola", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 311, "nombre": "Oscar", "apellido": "Galvis", "correo": "", "carrera": "Historia", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 312, "nombre": "Felipe", "apellido": "Díaz", "correo": "", "carrera": "Estadística", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 313, "nombre": "Mateo", "apellido": "Sánchez", "correo": "", "carrera": "Farmacia", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 314, "nombre": "Jorge", "apellido": "Pérez", "correo": "", "carrera": "Lingüística", "cargos": ["Noctua Academy"] },
+            { "id_usuario": 315, "nombre": "Ricardo", "apellido": "Mejía", "correo": "", "carrera": "Odontología", "cargos": ["Noctua Academy", "Coach"] }
+        ],
+        "partidos": [
+            { "id_partido": 1, "equipo": "Noctua Gold", "titulo": "Final Regional", "enemigo": "Obsidian Kings", "puntaje": "3-1", "stream": { "twitch": "https://tw.tv/noctua", "youtube": "https://yt.com/noctua", "facebook": "https://fb.com/noctua", "instagram": "https://ig.com/noctua", "tiktok": "https://tk.com/noctua", "kick": "https://kick.com/noctua" }, "fecha": "2026-03-24T15:00:00Z", "torneo": true },
+            { "id_partido": 2, "equipo": "Noctua Black", "titulo": "Scrim 1", "enemigo": "Ender Hunters", "puntaje": "21-30", "stream": { "twitch": "https://tw.tv/noctua" }, "fecha": "2026-03-25T19:00:00Z", "torneo": false },
+            { "id_partido": 3, "equipo": "Noctua Rose", "titulo": "Creative Cup", "enemigo": "Dream Architects", "puntaje": "95-88", "stream": { "tiktok": "https://tk.com/noctua", "instagram": "https://ig.com/noctua" }, "fecha": "2026-03-26T18:00:00Z", "torneo": true },
+            { "id_partido": 4, "equipo": "Noctua Academy", "titulo": "Rookie Skywars", "enemigo": "Void Walkers", "puntaje": "10-2", "stream": { "kick": "https://kick.com/noctua", "youtube": "https://yt.com/noctua" }, "fecha": "2026-03-27T21:00:00Z", "torneo": true },
+            { "id_partido": 5, "equipo": "Noctua White", "titulo": "UHC Solo", "enemigo": "Iron Hearts", "puntaje": "1-0", "stream": { "facebook": "https://fb.com/noctua" }, "fecha": "2026-03-28T20:00:00Z", "torneo": true },
+            { "id_partido": 6, "equipo": "Noctua Black", "titulo": "TNTRun", "enemigo": "Explosion Squad", "puntaje": "2-0", "stream": { "twitch": "https://tw.tv/noctua", "kick": "https://kick.com/noctua", "tiktok": "https://tk.com/noctua" }, "fecha": "2026-03-29T16:00:00Z", "torneo": true },
+            { "id_partido": 7, "equipo": "Noctua Gold", "titulo": "Capture Wool", "enemigo": "Redstone Eng", "puntaje": "2-1", "stream": { "youtube": "https://yt.com/noctua" }, "fecha": "2026-03-30T14:30:00Z", "torneo": true },
+            { "id_partido": 8, "equipo": "Noctua Rose", "titulo": "Hunger Games", "enemigo": "District 12", "puntaje": "1-0", "stream": { "twitch": "https://tw.tv/noctua", "youtube": "https://yt.com/noctua" }, "fecha": "2026-03-31T19:00:00Z", "torneo": false },
+            { "id_partido": 9, "equipo": "Noctua Academy", "titulo": "Survival G", "enemigo": "Craft Masters", "puntaje": "0-1", "stream": { "kick": "https://kick.com/noctua" }, "fecha": "2026-04-01T23:00:00Z", "torneo": false },
+            { "id_partido": 10, "equipo": "Noctua White", "titulo": "Parkour", "enemigo": "Jump Masters", "puntaje": "3-2", "stream": { "tiktok": "https://tk.com/noctua", "instagram": "https://ig.com/noctua", "facebook": "https://fb.com/noctua" }, "fecha": "2026-04-02T17:00:00Z", "torneo": true },
+            { "id_partido": 11, "equipo": "Noctua Black", "titulo": "Bridge Duels", "enemigo": "Fast Clickers", "puntaje": "5-4", "stream": { "twitch": "https://tw.tv/noctua" }, "fecha": "2026-04-03T20:00:00Z", "torneo": false },
+            { "id_partido": 12, "equipo": "Noctua Gold", "titulo": "Spleef", "enemigo": "Snow Shovels", "puntaje": "3-0", "stream": { "youtube": "https://yt.com/noctua", "facebook": "https://fb.com/noctua" }, "fecha": "2026-04-04T15:00:00Z", "torneo": true },
+            { "id_partido": 13, "equipo": "Noctua Rose", "titulo": "Hardcore", "enemigo": "Wither Slayers", "puntaje": "100-47", "stream": { "twitch": "https://tw.tv/noctua", "youtube": "https://yt.com/noctua", "kick": "https://kick.com/noctua", "tiktok": "https://tk.com/noctua" }, "fecha": "2026-04-05T22:00:00Z", "torneo": false },
+            { "id_partido": 14, "equipo": "Noctua Academy", "titulo": "EggWars", "enemigo": "Shell Shock", "puntaje": "1-2", "stream": { "kick": "https://kick.com/noctua" }, "fecha": "2026-04-06T14:00:00Z", "torneo": true },
+            { "id_partido": 15, "equipo": "Noctua Black", "titulo": "Crystal PvP", "enemigo": "End Crystal", "puntaje": "15-12", "stream": { "twitch": "https://tw.tv/noctua", "youtube": "https://yt.com/noctua" }, "fecha": "2026-04-07T21:00:00Z", "torneo": true },
+            { "id_partido": 16, "equipo": "Noctua White", "titulo": "Hide & Seek", "enemigo": "Prop Hunters", "puntaje": "8-4", "stream": { "instagram": "https://ig.com/noctua" }, "fecha": "2026-04-08T18:00:00Z", "torneo": false },
+            { "id_partido": 17, "equipo": "Noctua Academy", "titulo": "Dungeon", "enemigo": "Mob Grinders", "puntaje": "50-4", "stream": { "youtube": "https://yt.com/noctua" }, "fecha": "2026-04-09T16:00:00Z", "torneo": false },
+            { "id_partido": 18, "equipo": "Noctua Gold", "titulo": "Walls", "enemigo": "Stone Masons", "puntaje": "1-0", "stream": { "facebook": "https://fb.com/noctua", "youtube": "https://yt.com/noctua" }, "fecha": "2026-04-10T19:00:00Z", "torneo": true },
+            { "id_partido": 19, "equipo": "Noctua Rose", "titulo": "Elytra Race", "enemigo": "Airborne", "puntaje": "1-8", "stream": { "tiktok": "https://tk.com/noctua" }, "fecha": "2026-04-11T20:30:00Z", "torneo": true },
+            { "id_partido": 20, "equipo": "Noctua Black", "titulo": "Faction War", "enemigo": "Syndicate", "puntaje": "7-6", "stream": { "kick": "https://kick.com/noctua", "twitch": "https://tw.tv/noctua" }, "fecha": "2026-04-12T23:00:00Z", "torneo": false },
+            { "id_partido": 21, "equipo": "Noctua Academy", "titulo": "Build Battle", "enemigo": "Pixel Art", "puntaje": "8-4", "stream": { "twitch": "https://tw.tv/noctua", "youtube": "https://yt.com/noctua", "instagram": "https://ig.com/noctua", "tiktok": "https://tk.com/noctua" }, "fecha": "2026-04-13T13:00:00Z", "torneo": true },
+            { "id_partido": 22, "equipo": "Noctua White", "titulo": "One Block", "enemigo": "Solo Quest", "puntaje": "10-0", "stream": { "youtube": "https://yt.com/noctua" }, "fecha": "2026-04-14T12:00:00Z", "torneo": false },
+            { "id_partido": 23, "equipo": "Noctua Gold", "titulo": "Nether Conq", "enemigo": "Nether Lords", "puntaje": "4-1", "stream": { "facebook": "https://fb.com/noctua", "kick": "https://kick.com/noctua" }, "fecha": "2026-04-15T17:00:00Z", "torneo": true },
+            { "id_partido": 24, "equipo": "Noctua Academy", "titulo": "Mini-Games", "enemigo": "Party Animals", "puntaje": "5-5", "stream": { "kick": "https://kick.com/noctua" }, "fecha": "2026-04-16T18:30:00Z", "torneo": false },
+            { "id_partido": 25, "equipo": "Noctua Rose", "titulo": "Showdown", "enemigo": "Global Blocks", "puntaje": "2-3", "stream": { "twitch": "https://tw.tv/noctua", "facebook": "https://fb.com/noctua", "tiktok": "https://tk.com/noctua" }, "fecha": "2026-04-17T14:00:00Z", "torneo": true }
+        ]
+    }
+}

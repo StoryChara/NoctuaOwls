@@ -13,14 +13,19 @@
 }
 
 .nav-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 68px;
+    width: 100%;
+    padding: 0 32px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .nav-brand {
@@ -30,6 +35,7 @@
     font-weight: 800;
     font-size: 1.05rem;
     letter-spacing: -0.01em;
+    text-decoration: none;
 }
 
 .nav-logo {
@@ -45,7 +51,7 @@
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 }
 
 .nav-link {
@@ -60,6 +66,10 @@
 .nav-link:hover {
     color: var(--accent);
     background: var(--accent-soft);
+}
+
+.nav-register {
+    padding: 4px 10px !important;
 }
 
 .theme-toggle {
@@ -83,8 +93,58 @@
     background: var(--accent-soft);
 }
 
+/* Hamburger toggle - hidden on desktop */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 101;
+}
+
 @media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-actions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background: var(--nav-bg);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border);
+        z-index: 99;
+        
+        /* Hidden state */
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: all 0.3s var(--ease);
+    }
+
+    .nav-actions.is-open {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+    }
+
     .nav-link {
-        display: none;
+        display: block; /* Make sure links are visible inside the mobile menu */
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .nav-inner {
+        padding: 0 20px;
     }
 }
